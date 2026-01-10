@@ -1,0 +1,55 @@
+#navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #3B3355;
+    border-radius: 20px;
+
+    position: fixed;
+    left: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding: 20px;
+    z-index: 100;
+}
+
+.navigation-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+}
+
+#
+
+li a i{
+    color: #fefcfd;
+    transition: all 0.5s ease;
+}
+li a i:hover{
+    transition: all 0.5s ease;
+    background-color: #5d5d81;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+
+
+body{
+    background-color: #bfcde0;
+}
+
+
+
+
+    
+
+
+
