@@ -27,24 +27,30 @@
 
 }
 
-#
+#title
 
-li a i{
+.navigation-menu a{
+    text-decoration: none;
+}
+
+ul li i{
     color: #fefcfd;
     transition: all 0.5s ease;
+    
 }
 li a i:hover{
     transition: all 0.5s ease;
     background-color: #5d5d81;
     padding: 10px;
     border-radius: 50%;
+    
 }
-
-
 
 body{
     background-color: #bfcde0;
 }
+
+
 
 
 
