@@ -1,3 +1,9 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+
 #navbar {
     display: flex;
     flex-direction: column;
@@ -40,8 +46,9 @@
     padding: 20px 0;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
+
 
 }
 
@@ -68,7 +75,10 @@ body{
     background-color: #bfcde0;
 }
 
-
+section {
+    min-height: 100vh;
+    padding: 80px 10%;
+}
 
 
 
