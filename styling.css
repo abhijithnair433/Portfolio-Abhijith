@@ -52,8 +52,12 @@ html {
 
 }
 
-#title
-
+#title-main{
+    font-size: 5vw;
+}
+#title-main span{
+    display: block;
+}
 .navigation-menu a{
     text-decoration: none;
 }
@@ -73,11 +77,34 @@ li a i:hover{
 
 body{
     background-color: #bfcde0;
+    font-family: "Audiowide", sans-serif;
 }
 
 section {
     min-height: 100vh;
     padding: 80px 10%;
+}
+
+/*#########################################     home section    ############################################################*/
+
+
+
+.descriptions{
+    text-align: justify;
+    text-align: left;
+    font-size: 1.5vw;
+}
+
+
+#home-title-name{
+    font-size: 2vw;
+}
+
+#home-image img {
+  width: clamp(140px, 20vw, 220px);
+  height: auto;
+  border-radius: 120px;
+  float:right
 }
 
 
