@@ -1,16 +1,44 @@
-html {
-    scroll-behavior: smooth;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
 
+body {
+    background-color: #A6E1FA;
+    font-family: "Audiowide", sans-serif;
+    overflow-x: hidden;
+}
+
+/* ─── Top title link ─────────────────────────────────── */
+
+#title {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
+    text-decoration: none;
+    color: #0A2472;
+}
+
+/* ─── Navbar ─────────────────────────────────────────── */
 
 #navbar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 8px;
+    list-style: none;
 
-    background-color: #3B3355;
+    background-color: #0A2472;
     border-radius: 20px;
 
     position: fixed;
@@ -18,116 +46,212 @@ html {
     top: 50%;
     transform: translateY(-50%);
 
-    padding: 20px;
+    padding: clamp(10px, 1.5vw, 20px) clamp(8px, 1vw, 16px);
     z-index: 100;
 }
-
 
 @media screen and (max-width: 768px) {
     #navbar {
         flex-direction: row;
         justify-content: space-around;
-
+        align-items: center;
         width: 100%;
-        height: 40px;
-
-        position: fixed;
+        height: 50px;
         top: 0;
         left: 0;
-        border-radius: 0px;
+        transform: none;
+        border-radius: 0;
+        padding: 0 16px;
+    }
+
+    #title {
+        display: none; /* hidden on mobile, navbar takes full top */
     }
 }
 
-
+/* ─── Navigation items ───────────────────────────────── */
 
 .navigation-menu {
     display: flex;
-    flex-direction: column;
-    padding: 20px 0;
     justify-content: center;
     align-items: center;
-    text-decoration: none !important;
-    color: inherit;
-
-
 }
 
-#title-main{
-    font-size: 5vw;
-}
-#title-main span{
-    display: block;
-}
-.navigation-menu a{
+.navigation-menu a {
     text-decoration: none;
-}
-
-ul li i{
-    color: #fefcfd;
-    transition: all 0.5s ease;
-    
-}
-li a i:hover{
-    transition: all 0.5s ease;
-    background-color: #5d5d81;
-    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-body{
-    background-color: #bfcde0;
-    font-family: "Audiowide", sans-serif;
+.navigation-menu a:hover {
+    background-color: #00072D;
+    box-shadow: 0 0 0 6px rgba(0, 7, 45, 0.3);
 }
+
+.navigation-menu a i {
+    color: #fefcfd;
+    font-size: 1.1rem;
+    display: flex;
+}
+
+/* ─── Sections ───────────────────────────────────────── */
 
 section {
     min-height: 100vh;
-    padding: 80px 10%;
+    padding: clamp(40px, 8vh, 100px) clamp(20px, 8%, 120px);
+    /* left padding accounts for fixed sidebar navbar */
+    padding-left: clamp(90px, 10%, 140px);
 }
 
-/*#########################################     home section    ############################################################*/
+@media screen and (max-width: 768px) {
+    section {
+        padding: 70px 24px 40px;
+    }
+}
 
+/* ─── HOME SECTION ───────────────────────────────────── */
 
+#home {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "name    image"
+        "title   image"
+        "desc    image";
+    align-items: center;
+    column-gap: clamp(30px, 5vw, 80px);
+    row-gap: clamp(10px, 2vh, 20px);
+}
 
-.descriptions{
-    text-align: justify;
+#home-title-name {
+    grid-area: name;
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    letter-spacing: 0.25em;
+    color: #1a1a2e;
+    align-self: end;
+}
+
+#title-main {
+    grid-area: title;
+    font-size: clamp(2.2rem, 5vw, 5rem);
+    line-height: 1.1;
+    color: #00072D;
+    align-self: center;
+}
+
+#title-main span {
+    display: block;
+}
+
+.descriptions {
+    grid-area: desc;
     text-align: left;
-    font-size: 1.5vw;
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    line-height: 1.8;
+    color: #1a1a2e;
+    max-width: 560px;
+    align-self: start;
 }
 
+/* ─── Home Image ─────────────────────────────────────── */
 
-#home-title-name{
-    font-size: 2vw;
+#home-image {
+    grid-area: image;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
 }
 
 #home-image img {
-  width: clamp(250px, 20vw, 400px);
-  height: auto;
-  float:right;
-  border: 3px solid rgba(59, 51, 85, 0.25);
-  border-radius: 35%;
-    filter:
-    grayscale(85%)
-    sepia(30%)
-    hue-rotate(250deg)
-    saturate(100%)
-    brightness(100%);
+    width: clamp(200px, 22vw, 400px);
+    height: clamp(200px, 22vw, 400px);
+    object-fit: cover;
+    object-position: center top;
 
-  transition:  transform 0.4s ease;
+    border: 3px solid rgba(0, 76, 255, 0.25);
+    border-radius: 42% 42% 42% 42% / 50% 50% 50% 50%;
+
+    filter: grayscale(30%) sepia(60%) hue-rotate(210deg) saturate(180%) brightness(85%);
+
+
+    transition:
+        filter 0.5s ease,
+        transform 0.4s ease;
+
+    will-change: filter, transform;
 }
-
-  
 
 #home-image img:hover {
-   filter: none;
-  transform: scale(1.02);
+    filter: none;
+    transform: scale(1.03);
 }
 
+/* ─── Mobile home layout ─────────────────────────────── */
 
+@media screen and (max-width: 768px) {
+    #home {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "image"
+            "name"
+            "title"
+            "desc";
+        justify-items: center;
+        text-align: center;
+    }
 
+    #home-image img {
+        width: clamp(150px, 50vw, 260px);
+        height: clamp(150px, 50vw, 260px);
+    }
 
+    .descriptions {
+        text-align: center;
+        max-width: 100%;
+    }
+}
 
-    
+/* ─── Keyframes ──────────────────────────────────────── */
 
+@keyframes slideFromLeft {
+    0%   { opacity: 0; transform: translateX(-60px); }
+    65%  { transform: translateX(5px); }
+    82%  { transform: translateX(-2px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
 
+@keyframes slideFromRight {
+    0%   { opacity: 0; transform: translateX(60px); }
+    65%  { transform: translateX(-5px); }
+    82%  { transform: translateX(2px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
 
+/* ─── Apply to home elements ─────────────────────────── */
+
+#home-title-name {
+    animation: slideFromLeft 1s ease-out both;
+    animation-delay: 0.1s;
+}
+
+#title-main {
+    animation: slideFromLeft 1.1s ease-out both;
+    animation-delay: 0.2s;
+}
+
+.descriptions {
+    animation: slideFromLeft 1.2s ease-out both;
+    animation-delay: 0.35s;
+}
+
+#home-image {
+    animation: slideFromRight 1.1s ease-out both;
+    animation-delay: 0.15s;
+}
