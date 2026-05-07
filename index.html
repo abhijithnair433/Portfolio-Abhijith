@@ -1,55 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styling.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-    
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhijith R — Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a id="title" href="#home"><h3>Abhijith R</h3></a>
-        <ul id="navbar">
-            <li class="navigation-menu"><a href="#home"><i class="fi fi-rr-home"></i></a></i></li>
-            <li class="navigation-menu"><a href="#about"><i class="fi fi-rr-user"></i></a></li>
-            <li class="navigation-menu"><a href="#project"><i class="fi fi-rr-folder"></i></a></li>
-            <li class="navigation-menu"><a href="#contact"><i class="fi fi-rr-phone-call"></i></a></li>
-        </ul>
-    </nav>
 
+  <!-- Custom Cursor -->
+  <div id="cursor">
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+  </div>
 
-    <section id="home">
-        <h2 id="home-title-name">ABHIJITH R</h2>
-        <div id="home-image" >
-            <img src="res/abhijith.png" alt="Abhijith R">
-        </div>
-        <h1 id="title-main">Full Stack <span>Developer</span></h1>
-        <p class="descriptions">Hi! I’m Abhijith, A junior fullstack developer specializing in Web Development with a growing focus on Artificial Intelligence. Passionate about building scalable, user-friendly web applications and exploring AI technologies.</p>
-    </section>
+  <!-- Navbar -->
+  <nav>
+    <a href="/" class="nav-logo">AR</a>
 
+    <ul class="nav-links">
+      <li><a href="#about"      data-page="about">About</a></li>
+      <li><a href="#experience" data-page="experience">Experience</a></li>
+      <li><a href="#projects"   data-page="projects">Projects</a></li>
+      <li><a href="#education"  data-page="education">Education</a></li>
+      <li><a href="#contact"    data-page="contact">Contact</a></li>
+    </ul>
 
+    <a href="mailto:abhijithnair433@gmail.com" class="nav-cta">Hire Me</a>
+  </nav>
 
-    <section id="about">
-        <h2>about</h2>
-    </section>
+  <!-- Dynamic page content renders here -->
+  <main id="page"></main>
 
-
-
-
-    <section id="project">
-        <h2>project</h2>
-    </section>
-
-
-
-    <section id="contact">
-        <h2>contact</h2>
-    </section>
-
-    <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
